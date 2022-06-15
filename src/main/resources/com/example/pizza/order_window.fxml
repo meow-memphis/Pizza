@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="483.0" prefWidth="932.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pizza.OrderWindowController">
+   <children>
+      <ChoiceBox layoutX="37.0" layoutY="413.0" prefWidth="150.0" />
+      <ChoiceBox layoutX="213.0" layoutY="413.0" prefWidth="150.0" />
+      <ChoiceBox layoutX="377.0" layoutY="413.0" prefWidth="150.0" />
+      <Button layoutX="844.0" layoutY="405.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="64.0" text="Button" />
+      <TextField alignment="CENTER" layoutX="691.0" layoutY="412.0" prefHeight="26.0" prefWidth="47.0" promptText="1" />
+      <Button layoutX="745.0" layoutY="412.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" text="+" />
+      <Button layoutX="654.0" layoutY="412.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" text="-" />
+      <ChoiceBox layoutX="503.0" layoutY="436.0" prefWidth="150.0" />
+      <Button layoutX="809.0" layoutY="167.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="92.0" text="Button" />
+   </children>
+</AnchorPane>
