@@ -2,7 +2,7 @@ package com.example.pizza.product.drink;
 
 import com.example.pizza.product.Product;
 
-public class Kvass implements Product {
+public class Kvass extends Product {
 
     String type;
     String volume;

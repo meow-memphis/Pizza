@@ -2,7 +2,7 @@ package com.example.pizza.product.beer;
 
 import com.example.pizza.product.Product;
 
-public class Beer implements Product {
+public class Beer extends Product {
 
     String brand;
     String tara;

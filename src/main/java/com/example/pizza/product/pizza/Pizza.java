@@ -2,17 +2,17 @@ package com.example.pizza.product.pizza;
 
 import com.example.pizza.product.Product;
 
-public class Pizza implements Product {
-    private String string;
+public class Pizza extends Product {
+    private String sort;
     private String size;
     private String dough;
 
     public String getSort() {
-        return string;
+        return sort;
     }
 
-    public void setSort(String string) {
-        this.string = string;
+    public void setSort(String sort) {
+        this.sort = sort;
     }
 
     public String getSize() {
