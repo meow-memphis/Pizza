@@ -1,12 +1,22 @@
 package com.example.pizza;
 
+import com.example.pizza.product.Product;
+import com.example.pizza.product.beer.BeerBuilder;
+import com.example.pizza.product.drink.KvassBuilder;
+import com.example.pizza.product.drink.LemonadeBuilder;
+import com.example.pizza.product.fries.FriesBuilder;
 import com.example.pizza.product.pizza.Pizza;
+import com.example.pizza.product.pizza.PizzaBuilder;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class OrderWindowController {
 
@@ -31,7 +41,9 @@ public class OrderWindowController {
     @FXML
     private TextField numberField;
     @FXML
-    private ListView<?> listView;
+    private ListView<String> listView;
+
+    private ArrayList<Product> products = new ArrayList<>();
 
     public void initialize() {
         numberField.textProperty().addListener(new ChangeListener<String>() {
@@ -215,9 +227,9 @@ public class OrderWindowController {
         secondOptLabel.setText("Соус");
         secondOptLabel.setVisible(true);
 
-        String[] sauce = {"Нет", "100 Остров", "Горчичный", "Баребекю", "Кисло-острый"};
+        String[] sauce = {"100 Остров", "Горчичный", "Баребекю", "Кисло-острый"};
         secondOptBox.getItems().addAll(sauce);
-        secondOptBox.setValue("Нет");
+        secondOptBox.setValue("Барбекю");
         secondOptBox.setVisible(true);
 
         thirdOptLabel.setVisible(false);
@@ -226,7 +238,6 @@ public class OrderWindowController {
         fourOptLabel.setVisible(false);
         fourOptBox.setVisible(false);
     }
-
 
     @FXML
     void minusNumber(ActionEvent event) {
@@ -248,14 +259,56 @@ public class OrderWindowController {
 
     @FXML
     void addProduct(ActionEvent event) {
+        Product product = null;
+        switch (productBox.getValue()) {
+            case "Пицца" -> product = new PizzaBuilder().
+                    withSort(firstOptBox.getValue()).
+                    withSize(secondOptBox.getValue()).
+                    withDough(thirdOptBox.getValue()).build();
+            case "Лимонад" -> product = new LemonadeBuilder().
+                    withTaste(firstOptBox.getValue()).
+                    withVolume(secondOptBox.getValue()).build();
+            case "Квас" -> product = new KvassBuilder().
+                    withVolume(firstOptBox.getValue()).build();
+            case "Пиво" -> product = new BeerBuilder().
+                    withBrand(firstOptBox.getValue()).
+                    withSort(secondOptBox.getValue()).
+                    withTara(thirdOptBox.getValue()).
+                    withVolume(fourOptBox.getValue()).build();
+            case "Картофель фри" -> product = new FriesBuilder().
+                    withSize(firstOptBox.getValue()).
+                    withSauce(secondOptBox.getValue()).build();
+        }
+
+        if (product != null) {
+            for (int i = 0; i < Integer.parseInt(numberField.getText()); i++) {
+                products.add(product);
+            }
+        }
+        setListView();
+
+        numberField.replaceText(0, numberField.getText().length(), Integer.toString(1));
 
     }
 
     @FXML
     void addOrder(ActionEvent event) {
 
+        Orders.getInstance().getOrders().add(new Order(products));
+
         Stage stage = (Stage) listView.getScene().getWindow();
         stage.close();
+    }
+
+    void setListView() {
+        ArrayList<String> strings = new ArrayList<>();
+        int i = 1;
+        for (Product product : products) {
+            strings.add(i + ". " + product.getFullName());
+            i++;
+        }
+        ObservableList<String> stringsFX = FXCollections.observableArrayList(strings);
+        listView.setItems(stringsFX);
     }
 
 }

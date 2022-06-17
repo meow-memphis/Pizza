@@ -13,6 +13,11 @@ public class Order {
         number++;
     }
 
+    public Order(ArrayList<Product> products) {
+        this.products = products;
+        System.out.println(this.getProducts());
+    }
+
     public int getNumber() {
         return number;
     }

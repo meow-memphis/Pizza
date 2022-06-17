@@ -18,14 +18,16 @@ import java.util.ArrayList;
 public class MainWindowController {
 
     //    checkBtn.setVisible(false);
-    Orders ordersClass = Orders.getInstance();
+
+    public void initialize() {
+        initializeTree();
+    }
 
     public void initializeTree() {
 
         TreeItem<String> root = new TreeItem<>("Заказы");
-        root.setExpanded(true);
 
-        for (Order order : ordersClass.getOrders()) {
+        for (Order order : Orders.getInstance().getOrders()) {
 
             TreeItem<String> orderItem = new TreeItem<>("Заказ " + order.getNumber());
             root.getChildren().add(orderItem);
@@ -37,6 +39,7 @@ public class MainWindowController {
                 TreeItem<String> productItem = new TreeItem<>(product.getFullName());
                 orderItem.getChildren().add(productItem);
 
+
                 // Дописать листья с типами конкретными
                 // Дописать готовность
                 // Дописать при повторении продуктов не добавление, а плюсование в счетчик
@@ -47,6 +50,7 @@ public class MainWindowController {
         }
 
         tree.setRoot(root);
+        tree.setShowRoot(false);
     }
 
     @FXML
@@ -68,11 +72,12 @@ public class MainWindowController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        initializeTree();
     }
 
     @FXML
     void checkReady(ActionEvent event) {
-
+        initializeTree();
     }
 
     @FXML
