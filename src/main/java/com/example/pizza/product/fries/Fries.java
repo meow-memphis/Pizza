@@ -25,11 +25,7 @@ public class Fries extends Product {
 
     @Override
     public String getFullName() {
-        if (sauce != null) {
             return "Картофель фри " + size + " Соус " + sauce;
-        } else {
-            return "Картофель фри " + size;
-        }
     }
 
 }

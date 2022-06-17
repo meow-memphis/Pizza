@@ -13,9 +13,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class OrderWindowController {
@@ -42,7 +45,6 @@ public class OrderWindowController {
     private TextField numberField;
     @FXML
     private ListView<String> listView;
-
     private ArrayList<Product> products = new ArrayList<>();
 
     public void initialize() {
@@ -298,6 +300,7 @@ public class OrderWindowController {
 
         Stage stage = (Stage) listView.getScene().getWindow();
         stage.close();
+
     }
 
     void setListView() {

@@ -8,7 +8,8 @@
    <children>
       <TreeView fx:id="tree" layoutX="14.0" layoutY="10.0" prefHeight="630.0" prefWidth="634.0" />
       <Button layoutX="659.0" layoutY="47.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="105.0" prefWidth="216.0" text="Добавить заказ" />
-      <Button fx:id="checkBtn" layoutX="659.0" layoutY="266.0" mnemonicParsing="false" onAction="#checkReady" prefHeight="106.0" prefWidth="216.0" text="Проверка готовности" />
+      <Button fx:id="checkBtn" layoutX="659.0" layoutY="338.0" mnemonicParsing="false" onAction="#checkReady" prefHeight="106.0" prefWidth="216.0" text="Проверка готовности" />
       <Button layoutX="659.0" layoutY="490.0" mnemonicParsing="false" onAction="#sendOrder" prefHeight="106.0" prefWidth="216.0" text="Отправка на доставку" />
+      <Button layoutX="659.0" layoutY="191.0" mnemonicParsing="false" onAction="#showTree" prefHeight="106.0" prefWidth="216.0" text="Показать заказы" />
    </children>
 </AnchorPane>

@@ -14,10 +14,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainWindowController {
-
-    //    checkBtn.setVisible(false);
 
     public void initialize() {
         initializeTree();
@@ -29,23 +28,25 @@ public class MainWindowController {
 
         for (Order order : Orders.getInstance().getOrders()) {
 
-            TreeItem<String> orderItem = new TreeItem<>("Заказ " + order.getNumber());
-            root.getChildren().add(orderItem);
+            if (order != null) {
 
-            ArrayList<Product> products = order.getProducts();
+                TreeItem<String> orderItem = new TreeItem<>((order.isReady()) ?
+                        "Заказ " + order.getNumber() + " - Готов" :
+                        "Заказ " + order.getNumber() + " --- Не готов");
+                root.getChildren().add(orderItem);
+                orderItem.setExpanded(true);
 
-            for (Product product : products) {
+                ArrayList<Product> products = order.getProducts();
 
-                TreeItem<String> productItem = new TreeItem<>(product.getFullName());
-                orderItem.getChildren().add(productItem);
+                for (Product product : products) {
 
+                    TreeItem<String> productItem = new TreeItem<>((product.isReady()) ?
+                            product.getFullName() + " - Готов" :
+                            product.getFullName() + " --- Не готов");
+                    orderItem.getChildren().add(productItem);
 
-                // Дописать листья с типами конкретными
-                // Дописать готовность
-                // Дописать при повторении продуктов не добавление, а плюсование в счетчик
-
+                }
             }
-
 
         }
 
@@ -72,11 +73,34 @@ public class MainWindowController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        initializeTree();
     }
 
     @FXML
     void checkReady(ActionEvent event) {
+
+        for (Order order : Orders.getInstance().getOrders()) {
+
+            for (Product product: order.getProducts()) {
+
+                if (!product.isReady()) {
+
+                    Random random = new Random();
+                    int num = random.nextInt(10);
+                    if (num < 2) {
+                        product.setReady(true);
+                    }
+
+                }
+            }
+            order.calcReady();
+
+        }
+
+        initializeTree();
+    }
+
+    @FXML
+    void showTree(ActionEvent event) {
         initializeTree();
     }
 
