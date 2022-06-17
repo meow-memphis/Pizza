@@ -4,6 +4,7 @@ import com.example.pizza.orders.Order;
 import com.example.pizza.orders.Orders;
 import com.example.pizza.orders.product.Product;
 import com.example.pizza.orders.product.beer.BeerBuilder;
+import com.example.pizza.orders.product.burger.BurgerBuilder;
 import com.example.pizza.orders.product.drink.KvassBuilder;
 import com.example.pizza.orders.product.drink.LemonadeBuilder;
 import com.example.pizza.orders.product.fries.FriesBuilder;
@@ -69,6 +70,7 @@ public class OrderWindowController {
                 case "Квас" -> setKvass();
                 case "Пиво" -> setBeer();
                 case "Картофель фри" -> setFries();
+                case "Бургер" -> setBurger();
             }
         });
 
@@ -87,9 +89,42 @@ public class OrderWindowController {
 
     public void setProductBox() {
         productBox.getItems().clear();
-        String[] products = {"Пицца", "Лимонад", "Квас", "Пиво", "Картофель фри"};
+        String[] products = {"Пицца", "Лимонад", "Квас", "Пиво", "Картофель фри", "Бургер"};
         productBox.getItems().addAll(products);
         productBox.setValue("Пицца");
+    }
+
+    public void setBurger() {
+        clearBox();
+
+        firstOptLabel.setText("Сорт");
+        firstOptLabel.setVisible(true);
+
+        String[] sorts = {"Чизбургер", "Бургер", "БигМак"};
+        firstOptBox.getItems().addAll(sorts);
+        firstOptBox.setValue("Чизбургер");
+        firstOptBox.setVisible(true);
+
+
+        secondOptLabel.setText("Тип");
+        secondOptLabel.setVisible(true);
+
+        String[] type = {"Обычный", "Двойной", "Тройной"};
+        secondOptBox.getItems().addAll(type);
+        secondOptBox.setValue("Обычный");
+        secondOptBox.setVisible(true);
+
+
+        thirdOptLabel.setText("Соус");
+        thirdOptLabel.setVisible(true);
+
+        String[] doughs = {"Чили", "Кетчуп"};
+        thirdOptBox.getItems().addAll(doughs);
+        thirdOptBox.setValue("Кетчуп");
+        thirdOptBox.setVisible(true);
+
+        fourOptLabel.setVisible(false);
+        fourOptBox.setVisible(false);
     }
 
     public void setPizza() {
@@ -279,6 +314,10 @@ public class OrderWindowController {
             case "Картофель фри" -> product = new FriesBuilder().
                     withSize(firstOptBox.getValue()).
                     withSauce(secondOptBox.getValue()).build();
+            case "Бургер" -> product = new BurgerBuilder().
+                    withSort(firstOptBox.getValue()).
+                    withType(secondOptBox.getValue()).
+                    withSauce(thirdOptBox.getValue()).build();
         }
 
         if (product != null) {
