@@ -2,7 +2,7 @@ package com.example.pizza.product.beer;
 
 public class BeerBuilder {
 
-    Beer beer = new Beer();
+    private Beer beer = new Beer();
 
     public BeerBuilder withBrand(String brand) {
         beer.setBrand(brand);

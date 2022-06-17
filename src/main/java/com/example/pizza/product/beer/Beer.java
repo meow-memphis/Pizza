@@ -4,10 +4,10 @@ import com.example.pizza.product.Product;
 
 public class Beer extends Product {
 
-    String brand;
-    String tara;
-    String sort;
-    String volume;
+    private String brand;
+    private String tara;
+    private String sort;
+    private String volume;
 
     public String getBrand() {
         return brand;
@@ -39,5 +39,10 @@ public class Beer extends Product {
 
     public void setVolume(String volume) {
         this.volume = volume;
+    }
+
+    @Override
+    public String getFullName() {
+        return "Пиво " + brand + " " + sort + " " + tara + " " + volume;
     }
 }

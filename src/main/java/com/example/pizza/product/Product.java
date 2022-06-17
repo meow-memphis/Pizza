@@ -2,7 +2,8 @@ package com.example.pizza.product;
 
 public abstract class Product {
 
-    boolean isReady = false;
+
+    private boolean isReady = false;
 
     public boolean isReady() {
         return isReady;
@@ -11,4 +12,6 @@ public abstract class Product {
     public void setReady(boolean ready) {
         isReady = ready;
     }
+
+    public abstract String getFullName();
 }

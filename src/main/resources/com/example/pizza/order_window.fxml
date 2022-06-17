@@ -2,9 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane prefHeight="483.0" prefWidth="932.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pizza.OrderWindowController">
    <children>
@@ -17,5 +17,6 @@
       <Button layoutX="654.0" layoutY="412.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" text="-" />
       <ChoiceBox layoutX="503.0" layoutY="436.0" prefWidth="150.0" />
       <Button layoutX="809.0" layoutY="167.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="92.0" text="Button" />
+      <ListView layoutX="37.0" layoutY="22.0" prefHeight="318.0" prefWidth="557.0" />
    </children>
 </AnchorPane>

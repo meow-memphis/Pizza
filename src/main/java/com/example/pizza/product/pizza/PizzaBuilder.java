@@ -1,7 +1,7 @@
 package com.example.pizza.product.pizza;
 
 public class PizzaBuilder {
-    Pizza pizza = new Pizza();
+    private Pizza pizza = new Pizza();
 
     public PizzaBuilder withSort(String string) {
         pizza.setSort(string);

@@ -1,7 +1,7 @@
 package com.example.pizza.product.drink;
 
 public class LemonadeBuilder {
-    Lemonade lemonade = new Lemonade();
+    private Lemonade lemonade = new Lemonade();
 
     public LemonadeBuilder withTaste(String taste) {
         lemonade.setTaste(taste);

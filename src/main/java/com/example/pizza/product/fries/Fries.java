@@ -4,8 +4,8 @@ import com.example.pizza.product.Product;
 
 public class Fries extends Product {
 
-    String size;
-    String sauce;
+    private String size;
+    private String sauce;
 
     public String getSize() {
         return size;
@@ -22,4 +22,14 @@ public class Fries extends Product {
     public void setSauce(String sauce) {
         this.sauce = sauce;
     }
+
+    @Override
+    public String getFullName() {
+        if (sauce != null) {
+            return "Картофель фри " + size + ". Соус " + sauce;
+        } else {
+            return "Картофель фри " + size;
+        }
+    }
+
 }

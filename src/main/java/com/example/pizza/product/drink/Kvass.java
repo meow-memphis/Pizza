@@ -4,8 +4,8 @@ import com.example.pizza.product.Product;
 
 public class Kvass extends Product {
 
-    String type;
-    String volume;
+    protected String type;
+    protected String volume;
 
     public Kvass() {
         type = "Квас";
@@ -25,5 +25,10 @@ public class Kvass extends Product {
 
     public void setVolume(String volume) {
         this.volume = volume;
+    }
+
+    @Override
+    public String getFullName() {
+        return type + " " + volume;
     }
 }

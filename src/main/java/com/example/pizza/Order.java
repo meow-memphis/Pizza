@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 public class Order {
 
-    int number;
-    ArrayList<Product> products;
+    static private int number = 0;
+    private ArrayList<Product> products;
+
+    public Order() {
+        number++;
+    }
 
     public int getNumber() {
         return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public ArrayList<Product> getProducts() {

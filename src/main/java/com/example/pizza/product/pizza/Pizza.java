@@ -31,4 +31,8 @@ public class Pizza extends Product {
         this.dough = dough;
     }
 
+    @Override
+    public String getFullName() {
+        return "Пицца " + sort + " " + size + " " + dough + " тесто";
+    }
 }

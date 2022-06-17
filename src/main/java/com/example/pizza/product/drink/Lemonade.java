@@ -2,7 +2,7 @@ package com.example.pizza.product.drink;
 
 public class Lemonade extends Kvass {
 
-    String taste;
+    private String taste;
 
     public Lemonade() {
         type = "Лимонад";
@@ -14,5 +14,10 @@ public class Lemonade extends Kvass {
 
     public void setTaste(String taste) {
         this.taste = taste;
+    }
+
+    @Override
+    public String getFullName() {
+        return type + " " + taste + " " + volume;
     }
 }
