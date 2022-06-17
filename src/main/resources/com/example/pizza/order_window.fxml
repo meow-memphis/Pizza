@@ -5,18 +5,62 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="483.0" prefWidth="932.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pizza.OrderWindowController">
+<AnchorPane prefHeight="480.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pizza.OrderWindowController">
    <children>
-      <ChoiceBox layoutX="37.0" layoutY="413.0" prefWidth="150.0" />
-      <ChoiceBox layoutX="213.0" layoutY="413.0" prefWidth="150.0" />
-      <ChoiceBox layoutX="377.0" layoutY="413.0" prefWidth="150.0" />
-      <Button layoutX="844.0" layoutY="405.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="64.0" text="Button" />
-      <TextField alignment="CENTER" layoutX="691.0" layoutY="412.0" prefHeight="26.0" prefWidth="47.0" promptText="1" />
-      <Button layoutX="745.0" layoutY="412.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" text="+" />
-      <Button layoutX="654.0" layoutY="412.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" text="-" />
-      <ChoiceBox layoutX="503.0" layoutY="436.0" prefWidth="150.0" />
-      <Button layoutX="809.0" layoutY="167.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="92.0" text="Button" />
-      <ListView layoutX="37.0" layoutY="22.0" prefHeight="318.0" prefWidth="557.0" />
+      <BorderPane layoutX="-18.0" layoutY="-34.0" prefHeight="455.0" prefWidth="913.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <HBox BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="455.0" prefWidth="18.0" />
+                  <VBox prefHeight="483.0" prefWidth="153.0">
+                     <children>
+                        <HBox prefHeight="18.0" prefWidth="154.0" />
+                        <ChoiceBox fx:id="productBox" prefHeight="50.0" prefWidth="150.0" />
+                        <HBox prefHeight="33.0" prefWidth="154.0" />
+                        <ChoiceBox fx:id="firstOptBox" prefHeight="50.0" prefWidth="150.0" />
+                        <HBox prefHeight="28.0" prefWidth="154.0" />
+                        <ChoiceBox fx:id="secondOptBox" prefHeight="50.0" prefWidth="150.0" />
+                        <HBox prefHeight="31.0" prefWidth="154.0" />
+                        <ChoiceBox fx:id="thirdOptBox" prefHeight="50.0" prefWidth="150.0" />
+                        <HBox prefHeight="21.0" prefWidth="154.0" />
+                        <ChoiceBox fx:id="fourOptBox" prefHeight="50.0" prefWidth="150.0" />
+                        <HBox prefHeight="15.0" prefWidth="154.0" />
+                        <HBox alignment="CENTER" prefHeight="38.0" prefWidth="154.0">
+                           <children>
+                              <Button fx:id="minusBut" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" text="-" />
+                              <TextField fx:id="numberField" alignment="CENTER" prefHeight="26.0" prefWidth="58.0" promptText="1" />
+                              <Button fx:id="plusBut" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" text="+" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="14.0" prefWidth="154.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </left>
+         <right>
+            <HBox BorderPane.alignment="CENTER">
+               <children>
+                  <VBox maxWidth="-Infinity" prefHeight="455.0" prefWidth="130.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                        <Button mnemonicParsing="false" onAction="#addProduct" prefHeight="94.0" prefWidth="131.0" text="Добавить в заказ" />
+                        <HBox prefHeight="80.0" prefWidth="108.0" />
+                        <Button mnemonicParsing="false" onAction="#addOrder" prefHeight="99.0" prefWidth="142.0" text="Добавить заказ" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="455.0" prefWidth="10.0" />
+               </children>
+            </HBox>
+         </right>
+         <center>
+            <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="455.0" prefWidth="576.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>
