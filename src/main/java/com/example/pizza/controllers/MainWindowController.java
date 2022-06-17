@@ -99,17 +99,22 @@ public class MainWindowController {
 
         TreeItem c = (TreeItem) tree.getSelectionModel().getSelectedItem();
 
-        if (c!=null) {
+        if (c != null) {
 
             if (c.getValue().toString().contains("+++")) {
 
                 int numberOrder = Integer.parseInt(c.getValue().toString().replaceAll("[^0-9]", ""));
 
+                Order deletedOrder = null;
+
                 for (Order order : Orders.getInstance().getOrders()) {
                     if (order.getId() == numberOrder) {
                         Orders.getInstance().getDeletedOrders().add(order);
+
+                        deletedOrder = order;
                     }
                 }
+                Orders.getInstance().getOrders().remove(deletedOrder);
 
                 c.getParent().getChildren().remove(c);
             } else {
