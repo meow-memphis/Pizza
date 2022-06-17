@@ -31,9 +31,9 @@
                         <HBox prefHeight="15.0" prefWidth="154.0" />
                         <HBox alignment="CENTER" prefHeight="38.0" prefWidth="154.0">
                            <children>
-                              <Button fx:id="minusBut" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" text="-" />
-                              <TextField fx:id="numberField" alignment="CENTER" prefHeight="26.0" prefWidth="58.0" promptText="1" />
-                              <Button fx:id="plusBut" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" text="+" />
+                              <Button mnemonicParsing="false" onAction="#minusNumber" prefHeight="26.0" prefWidth="29.0" text="-" />
+                              <TextField fx:id="numberField" alignment="CENTER" prefHeight="26.0" prefWidth="58.0" text="1" />
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#plusNumber" prefHeight="26.0" prefWidth="30.0" text="+" />
                            </children>
                         </HBox>
                         <HBox prefHeight="14.0" prefWidth="154.0" />
