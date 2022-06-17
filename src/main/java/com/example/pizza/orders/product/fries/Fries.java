@@ -1,6 +1,6 @@
-package com.example.pizza.product.fries;
+package com.example.pizza.orders.product.fries;
 
-import com.example.pizza.product.Product;
+import com.example.pizza.orders.product.Product;
 
 public class Fries extends Product {
 

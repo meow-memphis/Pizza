@@ -1,28 +1,25 @@
-package com.example.pizza;
+package com.example.pizza.controllers;
 
-import com.example.pizza.product.Product;
-import com.example.pizza.product.beer.BeerBuilder;
-import com.example.pizza.product.drink.KvassBuilder;
-import com.example.pizza.product.drink.LemonadeBuilder;
-import com.example.pizza.product.fries.FriesBuilder;
-import com.example.pizza.product.pizza.Pizza;
-import com.example.pizza.product.pizza.PizzaBuilder;
+import com.example.pizza.orders.Order;
+import com.example.pizza.orders.Orders;
+import com.example.pizza.orders.product.Product;
+import com.example.pizza.orders.product.beer.BeerBuilder;
+import com.example.pizza.orders.product.drink.KvassBuilder;
+import com.example.pizza.orders.product.drink.LemonadeBuilder;
+import com.example.pizza.orders.product.fries.FriesBuilder;
+import com.example.pizza.orders.product.pizza.PizzaBuilder;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class OrderWindowController {
-
     @FXML
     private ChoiceBox<String> productBox;
     @FXML
@@ -296,7 +293,10 @@ public class OrderWindowController {
     @FXML
     void addOrder(ActionEvent event) {
 
-        Orders.getInstance().getOrders().add(new Order(products));
+        if (products.size()!=0){
+
+            Orders.getInstance().getOrders().add(new Order(products));
+        }
 
         Stage stage = (Stage) listView.getScene().getWindow();
         stage.close();

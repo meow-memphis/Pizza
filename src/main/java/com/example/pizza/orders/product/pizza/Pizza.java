@@ -1,6 +1,6 @@
-package com.example.pizza.product.pizza;
+package com.example.pizza.orders.product.pizza;
 
-import com.example.pizza.product.Product;
+import com.example.pizza.orders.product.Product;
 
 public class Pizza extends Product {
     private String sort;

@@ -1,4 +1,4 @@
-package com.example.pizza.product;
+package com.example.pizza.orders.product;
 
 public abstract class Product {
 

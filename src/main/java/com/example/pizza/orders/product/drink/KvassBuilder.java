@@ -1,4 +1,4 @@
-package com.example.pizza.product.drink;
+package com.example.pizza.orders.product.drink;
 
 public class KvassBuilder {
 

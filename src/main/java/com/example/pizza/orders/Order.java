@@ -1,19 +1,16 @@
-package com.example.pizza;
+package com.example.pizza.orders;
 
-import com.example.pizza.product.Product;
+import com.example.pizza.orders.product.Product;
 
 import java.util.ArrayList;
 
 public class Order {
 
-    static private int number = 0;
+    private static int count = 1;
+    private int id = 1;
     private ArrayList<Product> products;
 
     private boolean isReady = false;
-
-    public Order() {
-        number++;
-    }
 
     public boolean isReady() {
         return isReady;
@@ -30,11 +27,11 @@ public class Order {
 
     public Order(ArrayList<Product> products) {
         this.products = products;
-        System.out.println(this.getProducts());
+        id = count++;
     }
 
-    public int getNumber() {
-        return number;
+    public int getId() {
+        return id;
     }
 
     public ArrayList<Product> getProducts() {

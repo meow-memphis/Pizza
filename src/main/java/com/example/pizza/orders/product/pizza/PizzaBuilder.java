@@ -1,4 +1,4 @@
-package com.example.pizza.product.pizza;
+package com.example.pizza.orders.product.pizza;
 
 public class PizzaBuilder {
     private Pizza pizza = new Pizza();

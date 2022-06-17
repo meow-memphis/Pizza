@@ -1,6 +1,6 @@
-package com.example.pizza.product.drink;
+package com.example.pizza.orders.product.drink;
 
-import com.example.pizza.product.Product;
+import com.example.pizza.orders.product.Product;
 
 public class Kvass extends Product {
 

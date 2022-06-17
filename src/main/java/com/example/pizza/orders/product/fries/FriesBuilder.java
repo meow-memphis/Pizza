@@ -1,4 +1,4 @@
-package com.example.pizza.product.fries;
+package com.example.pizza.orders.product.fries;
 
 public class FriesBuilder {
 

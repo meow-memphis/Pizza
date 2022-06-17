@@ -1,4 +1,4 @@
-package com.example.pizza.product.beer;
+package com.example.pizza.orders.product.beer;
 
 public class BeerBuilder {
 
