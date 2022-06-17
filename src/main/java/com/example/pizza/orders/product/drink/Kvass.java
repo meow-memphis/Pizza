@@ -4,7 +4,14 @@ import com.example.pizza.orders.product.Product;
 
 public class Kvass extends Product {
 
+    protected static final String[] volumes = {"0.3 л", "0.5 л", "1 л", "1.5 л", "2 л"};
+
     protected String type;
+
+    public static String[] getVolumes() {
+        return volumes;
+    }
+
     protected String volume;
 
     public Kvass() {

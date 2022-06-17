@@ -1,6 +1,7 @@
 package com.example.pizza.controllers;
 
 import com.example.pizza.Application;
+import com.example.pizza.orders.Generator;
 import com.example.pizza.orders.Order;
 import com.example.pizza.orders.Orders;
 import com.example.pizza.orders.product.Product;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class MainWindowController {
+
+    Generator generator = new Generator();
 
     @FXML
     private TreeView<String> tree;
@@ -91,6 +94,12 @@ public class MainWindowController {
 
     @FXML
     void showTree(ActionEvent event) {
+        initializeTree();
+    }
+
+    @FXML
+    void addOrders(ActionEvent event) {
+        generator.generate();
         initializeTree();
     }
 

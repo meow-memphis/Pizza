@@ -2,6 +2,11 @@ package com.example.pizza.orders.product.drink;
 
 public class Lemonade extends Kvass {
 
+    public static String[] getTastes() {
+        return tastes;
+    }
+
+    private static final String[] tastes = {"Брусника", "Мандарин", "Авокадо"};
     private String taste;
 
     public Lemonade() {
