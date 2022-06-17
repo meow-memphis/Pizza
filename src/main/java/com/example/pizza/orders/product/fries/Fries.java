@@ -4,19 +4,6 @@ import com.example.pizza.orders.product.Product;
 
 public class Fries extends Product {
 
-    private static final String[] sizes = {"Малый", "Стандартный", "Большой"};
-
-    public static String[] getSizes() {
-        return sizes;
-    }
-
-    public static String[] getSauces() {
-        return sauces;
-    }
-
-    private static final String[] sauces = {"100 Остров", "Горчичный", "Баребекю", "Кисло-острый"};
-
-
     private String size;
     private String sauce;
 

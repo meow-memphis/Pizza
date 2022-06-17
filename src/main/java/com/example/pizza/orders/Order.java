@@ -25,10 +25,6 @@ public class Order {
         }
     }
 
-    public Order() {
-        products = new ArrayList<>();
-    }
-
     public Order(ArrayList<Product> products) {
         this.products = products;
         id = count++;
